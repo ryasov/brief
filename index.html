@@ -121,7 +121,7 @@
         </div>
 
         <div id="brief-form-container">
-          <form id="brief-form" action="https://api.web3forms.com/submit" method="POST">
+          <form id="brief-form">
             
             <!-- ====== ВАЖНО: Вставьте свой ключ доступа от Web3Forms ====== -->
             <input type="hidden" name="access_key" value="136cc884-dd43-4f58-880d-331c02e4de9b">
@@ -232,7 +232,7 @@
               <div class="form-step" data-step="6">
                 <h3 class="title-lg" style="font-size: 1.8rem; margin-bottom: 24px;">⚙️ Организационные вопросы</h3>
                 <div class="form-group"><label for="team">Команда: кто уже работает над проектом?</label><small>Есть ли дизайнер, SMM-специалист, копирайтер, маркетолог?</small><input type="text" id="team" name="project_team"></div>
-                <div class="form-group"><label for="decision_maker">Кто в проекте принимает финальное решение?</label><input type="text" id="decision_maker" name="decision_maker"></div>
+                <div class="form-group"><label for="decision_maker">Кто в проекте принимает финальное решение?</label><input type="text" id="decision_maker" name="decision_maker" required></div>
                 <div class="form-group">
                     <label>Бюджет: какой порядок бюджета вы закладываете на эту работу?</label>
                     <small>Этот вопрос помогает мне предложить вам наиболее релевантные решения</small>
@@ -252,7 +252,7 @@
 
             <div class="form-navigation">
               <button type="button" class="btn" id="prev-btn" style="visibility: hidden;"><i class="fa-solid fa-arrow-left"></i> Назад</button>
-              <button type="submit" class="btn" id="next-btn">Далее <i class="fa-solid fa-arrow-right"></i></button>
+              <button type="button" class="btn" id="next-btn">Далее <i class="fa-solid fa-arrow-right"></i></button>
             </div>
           </form>
         </div>
@@ -289,10 +289,8 @@
             
             if (currentStep === totalSteps - 1) {
                 nextBtn.innerHTML = 'Отправить бриф <i class="fa-solid fa-check"></i>';
-                nextBtn.type = 'submit';
             } else {
                 nextBtn.innerHTML = 'Далее <i class="fa-solid fa-arrow-right"></i>';
-                nextBtn.type = 'button';
             }
         };
 
@@ -301,9 +299,11 @@
             const inputs = currentStepElement.querySelectorAll('input[required], select[required], textarea[required]');
             let isValid = true;
             inputs.forEach(input => {
-                if (!input.value.trim()) {
+                if (!input.value || input.value.trim() === "") {
                     input.style.borderColor = 'red';
-                    input.focus();
+                    if (isValid) { // Focus only the first invalid input
+                       input.focus();
+                    }
                     isValid = false;
                 } else {
                     input.style.borderColor = '';
@@ -312,28 +312,7 @@
             return isValid;
         };
         
-        nextBtn.addEventListener('click', (e) => {
-            if (nextBtn.type === 'button') {
-                e.preventDefault();
-                if (!validateStep()) return;
-                if (currentStep < totalSteps - 1) {
-                    currentStep++;
-                    updateForm();
-                }
-            }
-        });
-
-        prevBtn.addEventListener('click', () => {
-            if (currentStep > 0) {
-                currentStep--;
-                updateForm();
-            }
-        });
-
-        briefForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            if (!validateStep()) return;
-
+        const handleSubmission = () => {
             const formData = new FormData(briefForm);
             const object = {};
             formData.forEach((value, key) => { object[key] = value });
@@ -356,20 +335,38 @@
                     formContainer.style.display = 'none';
                     successMessage.style.display = 'block';
                 } else {
-                    console.log(response);
-                    alert(`Ошибка: ${jsonResponse.message}`);
+                    console.error(jsonResponse);
+                    alert(`Ошибка: ${jsonResponse.message}. Пожалуйста, попробуйте еще раз.`);
                 }
             })
             .catch(error => {
-                console.log(error);
-                alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+                console.error(error);
+                alert('Произошла ошибка при отправке. Пожалуйста, проверьте ваше интернет-соединение.');
             })
             .finally(() => {
                 nextBtn.disabled = false;
-                 if (currentStep === totalSteps - 1) {
-                    nextBtn.innerHTML = 'Отправить бриф <i class="fa-solid fa-check"></i>';
-                }
+                updateForm();
             });
+        };
+
+        nextBtn.addEventListener('click', () => {
+            if (!validateStep()) {
+                return;
+            }
+
+            if (currentStep < totalSteps - 1) {
+                currentStep++;
+                updateForm();
+            } else {
+                handleSubmission();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentStep > 0) {
+                currentStep--;
+                updateForm();
+            }
         });
 
         document.querySelectorAll('.choice-grid').forEach(grid => {
@@ -398,4 +395,3 @@
   </script>
 </body>
 </html>
-
