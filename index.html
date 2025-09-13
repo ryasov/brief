@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Бриф на разработку стратегии — Антон Рясов</title>
+  <meta name="description" content="Заполните бриф, чтобы мы могли глубоко погрузиться в ваш проект и подготовить персонализированное предложение." />
+  <meta name="theme-color" content="#050508" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <noscript>
+    <style>
+      .preloader{display:none!important}
+      body{overflow:auto}
+    </style>
+  </noscript>
+
+  <style>
+    :root{--bg-color:#030305;--primary-accent:#8A2BE2;--secondary-accent:#00F2FE;--tertiary-accent:#FF00A8;--glass-bg:rgba(18,18,28,0.5);--border-color:rgba(255,255,255,0.08);--text-primary:#ECECF1;--text-secondary:#A0AEC0;--neon:rgba(138,43,226,0.9);}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{background:radial-gradient(70rem 50rem at 20% 10%, rgba(24, 18, 40, 0.22) 0%, rgba(24, 18, 40, 0) 60%),radial-gradient(65rem 50rem at 80% 90%, rgba(12, 32, 44, 0.18) 0%, rgba(12, 32, 44, 0) 60%),radial-gradient(60rem 45rem at 50% 95%, rgba(44, 12, 32, 0.16) 0%, rgba(44, 12, 32, 0) 60%),linear-gradient(180deg, #050508 0%, #07070c 45%, #040407 100%);background-attachment:fixed;background-color:var(--bg-color)}
+    body{font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:var(--text-primary);background-color:transparent;line-height:1.6;}
+    .background-effects{position:fixed;inset:0;z-index:-1;pointer-events:none}
+    .aurora-background{position:absolute;inset:-5%;background:radial-gradient(20rem 20rem at 22% 26%, rgba(138,43,226,0.78) 0%, rgba(138,43,226,0) 60%),radial-gradient(16rem 16rem at 74% 35%, rgba(0,242,254,0.88) 0%, rgba(0,242,254,0) 60%),radial-gradient(18rem 18rem at 56% 82%, rgba(255,0,168,0.78) 0%, rgba(255,0,168,0) 60%),radial-gradient(90rem 70rem at 14% 18%, rgba(60,22,110,0.26) 0%, rgba(60,22,110,0) 60%),radial-gradient(75rem 55rem at 84% 30%, rgba(0,120,130,0.22) 0%, rgba(0,120,130,0) 55%),radial-gradient(65rem 55rem at 50% 90%, rgba(160,0,100,0.20) 0%, rgba(160,0,100,0) 55%);filter:blur(70px) contrast(1.08) saturate(1.05);animation:aurora-move 22s infinite alternate;will-change:transform,filter;opacity:.82}
+    @keyframes aurora-move{to{transform:scale(1.06) translateY(-1.5%)}}
+    .noise-overlay{position:absolute;inset:0;opacity:.05;mix-blend-mode:soft-light;pointer-events:none;background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXVpaWlraeft7e3g4ODz8/Pj4+Pf39/6+vrx8fH29vb+/v7U1NTk5OTNzc3ExMTX19fS0tJKSkoAAADIyMh+f38AAABpL3zAAAACinRangeJloSfChJkSmVoKChJjEskGslsAnwKeJ5FfB5IcooOCgncfHh4kEskloKGhjeUvHjVOKXwIYOG0QhOAiBYRN5U2gRxVRJyrKShcrKIIKCDV23hkle//w/wJgGvpvpsCrwGzIAe5AnEAK5y7jyn1aP+92d//ALsZCEdVSgQAAAAASUVORK5CYII=')}
+    
+    .container{max-width:860px;margin:0 auto;padding:0 40px}
+    .section{padding:120px 0}
+    .section-header{text-align:center;margin-bottom:64px}
+    .tag{display:inline-block;padding:6px 12px;border:1px solid var(--border-color);border-radius:24px;color:#b9c0d0;background:rgba(255,255,255,0.04)}
+    .title-lg{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;line-height:1.1}
+    .subtitle{font-size:1.1rem;color:var(--text-secondary);max-width:820px;margin:14px auto 0}
+    .btn{position:relative; display:inline-flex;align-items:center;justify-content:center; gap:10px;padding:14px 24px;border-radius:999px;border:1px solid var(--border-color);color:#fff;text-decoration:none;font-weight:700;transition:border-color .25s,box-shadow .25s,transform .2s, opacity .25s;background:transparent; z-index: 1; cursor: pointer;}
+    .btn:hover{border-color:var(--neon);box-shadow:inset 0 0 14px 6px rgba(255,255,255,0.05), 0 0 14px rgba(138,43,226,0.45), 0 0 32px rgba(138,43,226,0.25);transform:translateY(-1px) scale(1.02)}
+    .btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none;border-color:var(--border-color);}
+
+    #brief-form-container {
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 32px;
+      backdrop-filter: blur(8px);
+    }
+    .progress-container { margin-bottom: 32px; }
+    .progress-bar { width: 100%; height: 8px; background-color: var(--border-color); border-radius: 4px; overflow: hidden; }
+    .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent)); border-radius: 4px; transition: width 0.4s ease-out; }
+    .progress-text { text-align: right; color: var(--text-secondary); margin-top: 8px; font-weight: 500; }
+    .form-step { display: none; }
+    .form-step.active { display: block; animation: fadeIn 0.5s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .form-group { margin-bottom: 24px; }
+    .form-group label { display: block; font-weight: 600; margin-bottom: 8px; }
+    .form-group small { display: block; color: var(--text-secondary); opacity: 0.8; margin-top: -4px; margin-bottom: 12px; font-style: italic; font-size: 0.9em; }
+    .form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"], .form-group input[type="url"], .form-group select, .form-group textarea {
+      width: 100%;
+      background-color: var(--glass-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23a0aec0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1em; }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--neon);
+      box-shadow: 0 0 12px rgba(138,43,226,0.4);
+    }
+    .choice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .choice-item {
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      transition: border-color .25s, box-shadow .25s, background-color .25s;
+      font-size: 0.95rem;
+    }
+    .choice-item:hover {
+      border-color: var(--neon);
+      background-color: rgba(138,43,226,0.1);
+    }
+    .choice-item.selected {
+      border-color: var(--secondary-accent);
+      background-color: rgba(0, 242, 254, 0.15);
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+      color: #fff;
+      font-weight: 600;
+    }
+    .form-navigation {
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #success-message { text-align: center; display: none; animation: fadeIn 0.5s ease-out; }
+    #success-message i { font-size: 4rem; color: var(--secondary-accent); text-shadow: 0 0 20px var(--secondary-accent); }
+  </style>
+</head>
+<body>
+
+  <div class="background-effects">
+    <div class="aurora-background"></div>
+    <div class="noise-overlay"></div>
+  </div>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag">Начнем работу</span>
+          <h1 class="title-lg">📄 Бриф на разработку стратегии</h1>
+          <p class="subtitle">Привет! Этот бриф — наш первый шаг к большим результатам. Он поможет мне глубоко погрузиться в ваш проект, а вам — структурировать мысли и цели. Поехали! 🚀</p>
+        </div>
+
+        <div id="brief-form-container">
+          <form id="brief-form" action="https://api.web3forms.com/submit" method="POST">
+            
+            <!-- ====== ВАЖНО: Вставьте свой ключ доступа от Web3Forms ====== -->
+            <input type="hidden" name="access_key" value="136cc884-dd43-4f58-880d-331c02e4de9b">
+            <!-- ========================================================== -->
+            <input type="hidden" name="subject" value="Новая заявка (Бриф на стратегию) с сайта">
+            <input type="hidden" name="from_name" value="Сайт-портфолио">
+            
+            <div class="progress-container">
+              <div class="progress-text" id="progress-text">Шаг 1 из 6</div>
+              <div class="progress-bar"><div class="progress-bar-fill" id="progress-bar-fill"></div></div>
+            </div>
+
+            <div class="form-steps">
+              
+              <!-- ШАГ 1: Знакомство -->
+              <div class="form-step active" data-step="1">
+                <h3 class="title-lg" style="font-size: 1.8rem; margin-bottom: 24px;">🤝 Знакомство</h3>
+                <div class="form-group"><label for="projectName">Название проекта / бренда / ваше имя</label><input type="text" id="projectName" name="project_name" required></div>
+                <div class="form-group"><label for="links">Ваш сайт и/или ключевые социальные сети</label><input type="url" id="links" name="project_links" placeholder="https://..."></div>
+                <div class="form-group"><label for="contact">Контактное лицо (Имя, Telegram)</label><input type="text" id="contact" name="contact_person" placeholder="Иван, @ivan_tg" required></div>
+                <div class="form-group"><label for="role">Ваша роль в проекте</label><input type="text" id="role" name="contact_role"></div>
+                <div class="form-group">
+                  <label>Предпочитаемый формат взаимодействия</label>
+                  <div class="choice-grid" data-type="single"><div class="choice-item" data-value="Онлайн">Онлайн</div><div class="choice-item" data-value="Оффлайн">Оффлайн</div><div class="choice-item" data-value="Гибридный">Гибридный</div></div>
+                  <input type="hidden" name="interaction_format" id="interaction_format">
+                </div>
+              </div>
+
+              <!-- ШАГ 2: Суть проекта -->
+              <div class="form-step" data-step="2">
+                <h3 class="title-lg" style="font-size: 1.8rem; margin-bottom: 24px;">🧬 Суть проекта и его ДНК</h3>
+                <div class="form-group"><label for="description">Опишите ваш продукт/услугу/проект простыми словами</label><textarea id="description" name="project_description"></textarea></div>
+                <div class="form-group"><label for="mission">Большая идея: почему ваш проект существует?</label><small>"Мы делаем дизайнерскую мебель доступной" или "Мы помогаем экспертам не бояться публичности"</small><textarea id="mission" name="project_mission"></textarea></div>
+                <div class="form-group">
+                    <label>На какой стадии сейчас находится проект?</label>
+                    <div class="choice-grid" data-type="single">
+                        <div class="choice-item" data-value="Идея">Только идея, ищу вектор</div>
+                        <div class="choice-item" data-value="MVP">Есть MVP и первые тесты</div>
+                        <div class="choice-item" data-value="Стабильные продажи">Есть стабильные продажи</div>
+                        <div class="choice-item" data-value="Масштабирование">Масштабируемся</div>
+                        <div class="choice-item" data-value="Ребрендинг">Проводим ребрендинг</div>
+                    </div>
+                    <input type="hidden" name="project_stage" id="project_stage">
+                </div>
+                <div class="form-group"><label for="history">Что уже было сделано в маркетинге и брендинге? Что сработало, а что нет?</label><small>Это поможет нам не повторять ошибок и усилить успешные действия</small><textarea id="history" name="marketing_history"></textarea></div>
+              </div>
+
+              <!-- ШАГ 3: Цели и Аудитория -->
+              <div class="form-step" data-step="3">
+                <h3 class="title-lg" style="font-size: 1.8rem; margin-bottom: 24px;">🎯 Цели и Аудитория</h3>
+                <div class="form-group">
+                    <label>Какие бизнес-задачи должна решить наша работа?</label>
+                    <div class="choice-grid" data-type="multiple">
+                        <div class="choice-item" data-value="Увеличить продажи">Увеличить продажи/LTV</div>
+                        <div class="choice-item" data-value="Привлечь новую аудиторию">Привлечь новую аудиторию</div>
+                        <div class="choice-item" data-value="Повысить узнаваемость">Повысить узнаваемость</div>
+                        <div class="choice-item" data-value="Отстроиться от конкурентов">Отстроиться от конкурентов</div>
+                        <div class="choice-item" data-value="Привлечь инвестиции">Привлечь инвестиции/партнеров</div>
+                        <div class="choice-item" data-value="Сформировать комьюнити">Сформировать комьюнити</div>
+                    </div>
+                    <input type="hidden" name="business_goals" id="business_goals">
+                </div>
+                <div class="form-group"><label for="audience">Опишите ядро вашей целевой аудитории</label><small>Возраст, пол, география, доход, ценности, интересы, чего боятся, о чем мечтают.</small><textarea id="audience" name="target_audience"></textarea></div>
+                <div class="form-group"><label for="pain_point">Какую «боль» или проблему клиента решает ваш продукт?</label><textarea id="pain_point" name="client_pain_point"></textarea></div>
+                <div class="form-group"><label for="vision">Каким вы видите проект через 1-3 года?</label><small>Помечтайте, это важно!</small><textarea id="vision" name="project_vision_3_years"></textarea></div>
+              </div>
+              
+              <!-- ШАГ 4: Рынок и Конкуренты -->
+              <div class="form-step" data-step="4">
+                <h3 class="title-lg" style="font-size: 1.8rem; margin-bottom: 24px;">🗺️ Рынок и Конкуренты</h3>
+                <div class="form-group"><label for="competitors">Ваши основные конкуренты (2-3 прямых и 1-2 косвенных)</label><small>Прямые — делают то же самое. Косвенные — решают ту же проблему другим способом</small><textarea id="competitors" name="competitors"></textarea></div>
+                <div class="form-group"><label for="strengths">В чем сильные стороны конкурентов? Что вам у них нравится?</label><textarea id="strengths" name="competitors_strengths"></textarea></div>
+                <div class="form-group"><label for="usp">Ваше ключевое отличие (УТП). Почему клиент должен выбрать именно вас?</label><small>Если ответа нет — так и напишите, мы его найдем</small><textarea id="usp" name="usp_unique_selling_proposition"></textarea></div>
+                <div class="form-group"><label for="inspiration">Бренды, которые вас вдохновляют (не обязательно из вашей ниши)</label><textarea id="inspiration" name="inspiration_brands"></textarea></div>
+              </div>
+
+              <!-- ШАГ 5: Характер и Голос Бренда -->
+              <div class="form-step" data-step="5">
+                <h3 class="title-lg" style="font-size: 1.8rem; margin-bottom: 24px;">🗣️ Характер и Голос Бренда</h3>
+                <div class="form-group"><label for="adjectives">Выберите 3-5 прилагательных, которые лучше всего описывают характер вашего бренда</label><small>Например: смелый, ироничный, заботливый, экспертный, минималистичный, бунтарский, технологичный, душевный.</small><textarea id="adjectives" name="brand_adjectives"></textarea></div>
+                <div class="form-group">
+                    <label>Tone of Voice (голос бренда)</label>
+                    <div class="choice-grid" data-type="single">
+                        <div class="choice-item" data-value="На «ты», дружелюбно">На «ты», дружелюбно</div>
+                        <div class="choice-item" data-value="На «Вы», уважительно">На «Вы», уважительно и экспертно</div>
+                        <div class="choice-item" data-value="С юмором, неформально">С юмором, неформально</div>
+                        <div class="choice-item" data-value="Официально, сдержанно">Официально, сдержанно</div>
+                        <div class="choice-item" data-value="Вдохновляюще">Вдохновляюще, мотивационно</div>
+                    </div>
+                    <input type="hidden" name="tone_of_voice" id="tone_of_voice">
+                </div>
+                <div class="form-group">
+                    <label>Какие ассоциации должен вызывать ваш визуальный стиль?</label>
+                    <div class="choice-grid" data-type="multiple">
+                        <div class="choice-item" data-value="Премиум">Премиум, люкс</div>
+                        <div class="choice-item" data-value="Минимализм">Минимализм, простота</div>
+                        <div class="choice-item" data-value="Экологичность">Экологичность, натуральность</div>
+                        <div class="choice-item" data-value="Технологии">Технологии, будущее</div>
+                        <div class="choice-item" data-value="Креатив">Креатив, искусство</div>
+                        <div class="choice-item" data-value="Уют">Уют, теплота</div>
+                    </div>
+                    <input type="hidden" name="visual_associations" id="visual_associations">
+                </div>
+                <div class="form-group"><label for="moodboard">Есть ли у вас мудборд или примеры визуала, который вам нравится?</label><input type="url" id="moodboard" name="moodboard_link" placeholder="Ссылка на Pinterest, Google Drive и т.д."></div>
+              </div>
+              
+              <!-- ШАГ 6: Организационные вопросы -->
+              <div class="form-step" data-step="6">
+                <h3 class="title-lg" style="font-size: 1.8rem; margin-bottom: 24px;">⚙️ Организационные вопросы</h3>
+                <div class="form-group"><label for="team">Команда: кто уже работает над проектом?</label><small>Есть ли дизайнер, SMM-специалист, копирайтер, маркетолог?</small><input type="text" id="team" name="project_team"></div>
+                <div class="form-group"><label for="decision_maker">Кто в проекте принимает финальное решение?</label><input type="text" id="decision_maker" name="decision_maker"></div>
+                <div class="form-group">
+                    <label>Бюджет: какой порядок бюджета вы закладываете на эту работу?</label>
+                    <small>Этот вопрос помогает мне предложить вам наиболее релевантные решения</small>
+                    <select id="budget" name="project_budget" required>
+                        <option value="" disabled selected>Выберите вариант...</option>
+                        <option value="До 50 000 ₽">До 50 000 ₽</option>
+                        <option value="50 000 – 100 000 ₽">50 000 – 100 000 ₽</option>
+                        <option value="100 000 – 200 000 ₽">100 000 – 200 000 ₽</option>
+                        <option value="200 000+ ₽">200 000+ ₽</option>
+                        <option value="Гибкий">Бюджет гибкий, зависит от предложенной стратегии</option>
+                    </select>
+                </div>
+                <div class="form-group"><label for="source">Откуда вы узнали обо мне?</label><input type="text" id="source" name="source"></div>
+                <div class="form-group"><label for="fears">Какие у вас есть страхи или опасения, связанные с этим проектом?</label><textarea id="fears" name="project_fears"></textarea></div>
+              </div>
+            </div>
+
+            <div class="form-navigation">
+              <button type="button" class="btn" id="prev-btn" style="visibility: hidden;"><i class="fa-solid fa-arrow-left"></i> Назад</button>
+              <button type="submit" class="btn" id="next-btn">Далее <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </form>
+        </div>
+        
+        <div id="success-message">
+             <i class="fa-solid fa-paper-plane"></i>
+             <h2 class="title-lg" style="margin-top: 24px;">Бриф успешно отправлен!</h2>
+             <p class="subtitle">Спасибо! Я изучу вашу информацию и свяжусь с вами в течение 24 часов для обсуждения деталей.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const formContainer = document.getElementById('brief-form-container');
+        const briefForm = document.getElementById('brief-form');
+        const successMessage = document.getElementById('success-message');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const steps = Array.from(document.querySelectorAll('.form-step'));
+        const progressBarFill = document.getElementById('progress-bar-fill');
+        const progressText = document.getElementById('progress-text');
+        
+        let currentStep = 0;
+        const totalSteps = steps.length;
+
+        const updateForm = () => {
+            steps.forEach((step, index) => step.classList.toggle('active', index === currentStep));
+            const progressPercent = ((currentStep + 1) / totalSteps) * 100;
+            progressBarFill.style.width = `${progressPercent}%`;
+            progressText.textContent = `Шаг ${currentStep + 1} из ${totalSteps}`;
+            prevBtn.style.visibility = currentStep > 0 ? 'visible' : 'hidden';
+            
+            if (currentStep === totalSteps - 1) {
+                nextBtn.innerHTML = 'Отправить бриф <i class="fa-solid fa-check"></i>';
+                nextBtn.type = 'submit';
+            } else {
+                nextBtn.innerHTML = 'Далее <i class="fa-solid fa-arrow-right"></i>';
+                nextBtn.type = 'button';
+            }
+        };
+
+        const validateStep = () => {
+            const currentStepElement = steps[currentStep];
+            const inputs = currentStepElement.querySelectorAll('input[required], select[required], textarea[required]');
+            let isValid = true;
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.style.borderColor = 'red';
+                    input.focus();
+                    isValid = false;
+                } else {
+                    input.style.borderColor = '';
+                }
+            });
+            return isValid;
+        };
+        
+        nextBtn.addEventListener('click', (e) => {
+            if (nextBtn.type === 'button') {
+                e.preventDefault();
+                if (!validateStep()) return;
+                if (currentStep < totalSteps - 1) {
+                    currentStep++;
+                    updateForm();
+                }
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentStep > 0) {
+                currentStep--;
+                updateForm();
+            }
+        });
+
+        briefForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!validateStep()) return;
+
+            const formData = new FormData(briefForm);
+            const object = {};
+            formData.forEach((value, key) => { object[key] = value });
+            const json = JSON.stringify(object);
+
+            nextBtn.disabled = true;
+            nextBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Отправка...';
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let jsonResponse = await response.json();
+                if (response.status == 200) {
+                    formContainer.style.display = 'none';
+                    successMessage.style.display = 'block';
+                } else {
+                    console.log(response);
+                    alert(`Ошибка: ${jsonResponse.message}`);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                alert('Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.');
+            })
+            .finally(() => {
+                nextBtn.disabled = false;
+                 if (currentStep === totalSteps - 1) {
+                    nextBtn.innerHTML = 'Отправить бриф <i class="fa-solid fa-check"></i>';
+                }
+            });
+        });
+
+        document.querySelectorAll('.choice-grid').forEach(grid => {
+            const items = grid.querySelectorAll('.choice-item');
+            const type = grid.dataset.type;
+            const hiddenInput = grid.nextElementSibling;
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    const value = item.dataset.value;
+                    if (type === 'single') {
+                        items.forEach(i => i.classList.remove('selected'));
+                        item.classList.add('selected');
+                        hiddenInput.value = value;
+                    } 
+                    if (type === 'multiple') {
+                        item.classList.toggle('selected');
+                        const selectedValues = Array.from(grid.querySelectorAll('.selected')).map(el => el.dataset.value);
+                        hiddenInput.value = selectedValues.join(', ');
+                    }
+                });
+            });
+        });
+
+        updateForm();
+    });
+  </script>
+</body>
+</html>
+
